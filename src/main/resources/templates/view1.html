@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>View 1</title>
+	<link rel="stylesheet" href="/style.css">
+	<!-- bootStrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+	<!--
+			Feel free to make changes to this HTML but do no change the option in select
+		-->
+
+	<form method="POST" action="/view2" data-th-object="${item}"> 
+
+		<h1>Shopping Cart</h1>
+
+		<table>
+			<tr>
+				<td>Item:</td>
+				<td>
+					<select name="item" data-th-field="*{item}">
+						<option value="apple">Apple</option>
+						<option value="orange">Orange</option>
+						<option value="bread">Bread</option>
+						<option value="cheese">Cheese</option>
+						<option value="chicken">Chicken</option>
+						<option value="mineral_water">Mineral Water</option>
+						<option value="instant_noodles">Instant Noodles</option>
+					</select>
+					<div data-th-if="${#fields.hasErrors('item')}">
+							<span data-th-errors="*{item}" data-th-errorclass="error"></span>
+					</div>
+				</td>
+
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td>
+					<input type="number"  value="1" min="1" name="quantity" size="4" placeholder="Quantity" data-th-field="*{quantity}" />
+					<div data-th-if="${#fields.hasErrors('quantity')}">
+						<span data-th-errors="*{quantity}" data-th-errorclass="error"></span>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<table border="1" style="margin-top: 2vh; margin-bottom: 2vh;">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<!-- <tr data-th-if="${repo.isEmptyMap}"> -->
+					<td>Apple</td>
+					<td>3</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div>
+			<button type="button" data-th-action="@{/view1}">Add</button>
+			<button type="submit">Next</button>
+		</div>
+	</form>
+	<!-- BootStrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
