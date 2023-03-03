@@ -1,5 +1,4 @@
-// TODO: Add your package here
-
+package ibf2022.ssf.assessment.ssfassessmentshoppingcart.models;
 // DO NOT MODIFY THIS FILE
 
 import java.util.HashMap;

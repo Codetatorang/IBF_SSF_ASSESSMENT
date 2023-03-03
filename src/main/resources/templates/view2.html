@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <form action="@(/view3)" method="POST" data-th-object="${delivery}">
+    <form action="/shippingaddress" method="GET" data-th-object="${delivery}">
         <!-- <div class="row h-100 justify-content-center align-items-center"> -->
         <div class="mb-3">
             <h1>Shipping Address</h1>
@@ -22,12 +22,18 @@
                     <br>
                     <div class="col-sm-7">
                         <label for="name" class="form-label" name="name">Name: </label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" data-th-field="*{name}">
+                        <div data-th-if="${#fields.hasErrors('name')}">
+                            <span data-th-errors="*{name}" data-th-errorclass="error"></span>
+                        </div>
                         <br>
                         <label for="address" class="form-label" name="address">Address: </label>
-                        <input type="text" name="address">
+                        <input type="text" name="address" data-th-field="*{address}">
+                        <div data-th-if="${#fields.hasErrors('address')}">
+                            <span data-th-errors="*{address}" data-th-errorclass="error"></span>
+                        </div>
                         <br>
-                        <button type="button" data-th-href="@{/view1}">Back</button>
+                        <button type="button" onclick="history.go(-1)">Back</button>
                         <button type="submit">Checkout</button>
                     </div>
                 </div>

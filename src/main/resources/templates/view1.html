@@ -59,7 +59,7 @@
 			</thead>
 			<tbody>
 				<tr>
-				<!-- <tr data-th-if="${repo.isEmptyMap}"> -->
+				<!-- <tr data-th-unless="${#svc.isEmptyMap}"> -->
 					<td>Apple</td>
 					<td>3</td>
 				</tr>
@@ -67,7 +67,7 @@
 		</table>
 
 		<div>
-			<button type="button" data-th-action="@{/view1}">Add</button>
+			<button type="button" data-th-href="@{/view1}">Add</button>
 			<button type="submit">Next</button>
 		</div>
 	</form>
